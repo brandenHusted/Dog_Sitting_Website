@@ -35,6 +35,7 @@ if not app.secret_key:
     app.secret_key = "local-development-only-change-this-key"
 # Need help, try: if ($env:ADMIN_USERNAME) { "ADMIN_USERNAME is set" } else { "ADMIN_USERNAME is not set" }
 # if you need username type this: $env:ADMIN_USERNAME = "your_username"
+#Do $env:APP_MODE = "local" and $env:DATABASE_URL = ("https://dashboard.render.com/web/srv-dbh42ajl550s73es9ia0/env" find the DATABASE_URL in the Render dashboard in enviroment variables)
 ADMIN_USERNAME = os.environ.get("ADMIN_USERNAME", "bhusted")
 # If you need password type this: $env:ADMIN_PASSWORD_HASH = (python -c "from getpass import getpass; from werkzeug.security import generate_password_hash; print(generate_password_hash(getpass('Enter your new admin password: ')))")
 ADMIN_PASSWORD_HASH = os.environ.get("ADMIN_PASSWORD_HASH", "")
