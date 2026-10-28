@@ -33,8 +33,10 @@ if not app.secret_key:
     if IS_PUBLIC:
         raise RuntimeError("FLASK_SECRET_KEY must be configured for the public deployment.")
     app.secret_key = "local-development-only-change-this-key"
-
+# Need help, try: if ($env:ADMIN_USERNAME) { "ADMIN_USERNAME is set" } else { "ADMIN_USERNAME is not set" }
+# if you need username type this: $env:ADMIN_USERNAME = "your_username"
 ADMIN_USERNAME = os.environ.get("ADMIN_USERNAME", "bhusted")
+# If you need password type this: $env:ADMIN_PASSWORD_HASH = (python -c "from getpass import getpass; from werkzeug.security import generate_password_hash; print(generate_password_hash(getpass('Enter your new admin password: ')))")
 ADMIN_PASSWORD_HASH = os.environ.get("ADMIN_PASSWORD_HASH", "")
 SQLITE_DATABASE = os.path.join(os.path.dirname(__file__), "bookings.db")
 
